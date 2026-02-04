@@ -90,10 +90,10 @@ function App() {
           <motion.div key="home" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             className="max-w-md w-full text-center space-y-6 bg-white p-10 rounded-3xl shadow-xl"
           >
-            <h1 className="text-4xl font-black text-slate-800 leading-tight">나에게 맞는<br/><span className="text-blue-600">반려견 찾기</span></h1>
-            <img src="/images/main.jpg" className="rounded-2xl shadow-lg w-full h-56 object-cover" alt="main" />
+            <h1 className="text-4xl font-black text-slate-800 leading-tight">나에게 맞는<br/><span className="text-orange-500">반려묘 찾기</span></h1>
+            <img src="/images/main.png" className="rounded-2xl shadow-lg w-full h-56 object-cover" alt="main" />
             <p className="text-slate-500 font-medium italic">"10개의 질문으로 당신의 소울메이트를 분석합니다."</p>
-            <button onClick={() => { playSound('bark'); setPage('quiz'); }} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-xl hover:bg-blue-600 transition-all shadow-lg">테스트 시작하기</button>
+            <button onClick={() => { playSound('bark'); setPage('quiz'); }} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-xl hover:bg-orange-500 transition-all shadow-lg">테스트 시작하기</button>
             <footer className="pt-2 text-[10px] text-slate-300 uppercase tracking-widest font-bold">© All rights reserved.</footer>
           </motion.div>
         )}
@@ -104,17 +104,17 @@ function App() {
             className="max-w-md w-full space-y-6 bg-white p-6 rounded-3xl shadow-xl"
           >
             <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-blue-500 h-full transition-all duration-500" style={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}></div>
+              <div className="bg-amber-400 h-full transition-all duration-500" style={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}></div>
             </div>
-            <img src={questions[currentStep].image || "/images/main.jpg"} className="w-full h-44 object-cover rounded-2xl shadow-sm" alt="quiz-step" />
+            <img src={questions[currentStep].image || "/images/main.jpg"} className="w-full aspect-[4/3] object-cover rounded-2xl shadow-sm" alt="quiz-step" />
             <div className="space-y-1">
-              <span className="text-blue-600 font-bold text-xs">QUESTION {currentStep + 1} / 10</span>
+              <span className="text-orange-500 font-bold text-xs">QUESTION {currentStep + 1} / 10</span>
               <h2 className="text-xl font-bold text-slate-800">{questions[currentStep].question}</h2>
             </div>
             <div className="grid gap-3">
               {questions[currentStep].options.map((option, index) => (
                 <button key={index} onClick={() => handleAnswer(option.scores)}
-                  className="w-full p-4 text-left border-2 border-slate-50 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all font-semibold text-slate-700">
+                  className="w-full p-4 text-left border-2 border-slate-50 rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all font-semibold text-slate-700">
                   {option.text}
                 </button>
               ))}
@@ -129,12 +129,12 @@ function App() {
           >
             <div className="relative w-24 h-24 mx-auto">
               <div className="absolute inset-0 border-8 border-slate-100 rounded-full"></div>
-              <div className="absolute inset-0 border-8 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
-              <div className="absolute inset-0 flex items-center justify-center text-4xl">🐕</div>
+              <div className="absolute inset-0 border-8 border-orange-400 rounded-full border-t-transparent animate-spin"></div>
+              <div className="absolute inset-0 flex items-center justify-center text-4xl">🐱</div>
             </div>
             <div className="space-y-2">
-              <h2 className="text-2xl font-black text-slate-800 animate-pulse">심층 분석 중...</h2>
-              <p className="text-slate-400 font-medium text-sm">라이프스타일 매칭 엔진 가동 중</p>
+              <h2 className="text-2xl font-black text-slate-800 animate-pulse">묘연(猫緣) 분석 중...</h2>
+              <p className="text-slate-400 font-medium text-sm">집사 성향 매칭 엔진 가동 중</p>
             </div>
           </motion.div>
         )}
@@ -145,7 +145,7 @@ function App() {
             className="max-w-md w-full space-y-6 bg-white p-8 rounded-3xl shadow-2xl overflow-y-auto max-h-[90vh]"
           >
             <div className="text-center space-y-1">
-              <span className="text-blue-600 font-black text-xs tracking-[0.2em] uppercase">Match Analysis Result</span>
+              <span className="text-orange-500 font-black text-xs tracking-[0.2em] uppercase">Match Analysis Result</span>
               <h2 className="text-3xl font-black text-slate-800 tracking-tight">{resultDog.breed}</h2>
             </div>
 
@@ -165,7 +165,7 @@ function App() {
             <p className="text-slate-600 text-center leading-relaxed font-medium text-sm">{resultDog.description}</p>
 
             <div className="flex gap-2 pt-2">
-              <button onClick={() => { playSound('bark'); alert('링크가 복사되었습니다!'); }} className="flex-1 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors">결과 공유</button>
+              <button onClick={() => { playSound('bark'); alert('링크가 복사되었습니다!'); }} className="flex-1 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-orange-500 transition-colors">결과 공유</button>
               {/* 🔴 수정한 다시하기 버튼 */}
               <button onClick={restartTest} className="flex-1 bg-slate-100 text-slate-500 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors">다시하기</button>
             </div>
